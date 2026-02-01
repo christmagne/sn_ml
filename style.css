@@ -111,7 +111,7 @@ html, body, [class*="css"] {
    HERO SECTION (PAGE ACCUEIL)
    ============================================== */
 .hero-section {
-    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-blue) 100%);
+    background: var(--accent-gold);
     padding: 60px 40px;
     border-radius: 20px;
     margin-bottom: 40px;
