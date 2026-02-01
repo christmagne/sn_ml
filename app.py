@@ -100,7 +100,7 @@ if page == "🏠 Accueil":
         with col1:
             st.markdown(f"""
             <div class="metric-card metric-card-blue">
-                <div class="metric-icon">�</div>
+                <div class="metric-icon">👥</div>
                 <div class="metric-value">{len(df):,}</div>
                 <div class="metric-label">Clients Total</div>
             </div>
@@ -110,7 +110,7 @@ if page == "🏠 Accueil":
             avg_exp = df['expenditure'].mean()
             st.markdown(f"""
             <div class="metric-card metric-card-green">
-                <div class="metric-icon">�</div>
+                <div class="metric-icon">💵</div>
                 <div class="metric-value">${avg_exp:.0f}</div>
                 <div class="metric-label">Dépenses Moyennes</div>
             </div>
