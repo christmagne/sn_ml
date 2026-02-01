@@ -1,58 +1,542 @@
-/* style.css */
+/* ==============================================
+   CREDIT ANALYTICS PRO - PROFESSIONAL DESIGN
+   Theme: Banking & Finance
+   ============================================== */
 
-/* Import d'une jolie police Google */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* Import des polices élégantes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap');
 
+/* ==============================================
+   VARIABLES GLOBALES
+   ============================================== */
+:root {
+    /* Palette Bancaire Professionnelle */
+    --primary-navy: #1a365d;
+    --primary-blue: #2c5282;
+    --accent-gold: #b8860b;
+    --accent-light-gold: #d4af37;
+    
+    /* Couleurs secondaires */
+    --success-green: #48bb78;
+    --warning-orange: #ed8936;
+    --error-red: #f56565;
+    --info-blue: #4299e1;
+    
+    /* Neutres */
+    --bg-light: #f7fafc;
+    --bg-white: #ffffff;
+    --text-dark: #2d3748;
+    --text-gray: #718096;
+    --border-color: #e2e8f0;
+    
+    /* Ombres */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* ==============================================
+   BASE STYLES
+   ============================================== */
 html, body, [class*="css"] {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
 }
 
-/* Couleur de fond générale */
 .stApp {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, #f7fafc 0%, #e6f2ff 100%);
 }
 
-/* Style du titre principal */
-h1 {
-    color: #2c3e50;
-    text-align: center;
+/* Suppression des marges Streamlit */
+.block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 3rem !important;
+}
+
+/* ==============================================
+   SIDEBAR DESIGN
+   ============================================== */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, var(--primary-navy) 0%, var(--primary-blue) 100%);
+    border-right: 3px solid var(--accent-gold);
+}
+
+[data-testid="stSidebar"] .sidebar-header h1 {
+    color: white;
+    font-size: 24px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #4CAF50;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Style des cartes de metrics (Résultats) */
-div[data-testid="stMetric"] {
-    background-color: #ffffff;
-    padding: 15px;
+/* Boutons radio dans la sidebar */
+[data-testid="stSidebar"] .stRadio > div {
+    gap: 10px;
+}
+
+[data-testid="stSidebar"] .stRadio label {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    border-left: 5px solid #4CAF50;
+    color: white !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
 }
 
-/* Style du bouton */
-.stButton > button {
+[data-testid="stSidebar"] .stRadio label:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-gold);
+    transform: translateX(5px);
+}
+
+[data-testid="stSidebar"] .stRadio input:checked + div {
+    background: var(--accent-gold) !important;
+    border-color: var(--accent-light-gold);
+    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.4);
+}
+
+/* Texte sidebar */
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] .sidebar-info {
+    color: #e2e8f0 !important;
+}
+
+[data-testid="stSidebar"] hr {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ==============================================
+   HERO SECTION (PAGE ACCUEIL)
+   ============================================== */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-blue) 100%);
+    padding: 60px 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
+    opacity: 0.1;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    color: #e2e8f0;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 300;
+    position: relative;
+}
+
+/* ==============================================
+   LOGO PLACEHOLDER
+   ============================================== */
+.logo-placeholder {
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 30px;
+    border: 3px dashed var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.logo-placeholder:hover {
+    border-color: var(--accent-gold);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ==============================================
+   SECTION HEADERS
+   ============================================== */
+.section-header h2 {
+    color: var(--primary-navy);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--accent-gold);
+    position: relative;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: var(--primary-blue);
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+}
+
+.page-header h1 {
+    color: var(--primary-navy);
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: var(--text-gray);
+    font-size: 16px;
+}
+
+/* ==============================================
+   METRIC CARDS (STATISTIQUES)
+   ============================================== */
+.metric-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: all 0.3s ease;
+    border-left: 5px solid;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
+    opacity: 0.3;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.metric-card-blue {
+    border-left-color: var(--info-blue);
+}
+
+.metric-card-green {
+    border-left-color: var(--success-green);
+}
+
+.metric-card-gold {
+    border-left-color: var(--accent-gold);
+}
+
+.metric-card-purple {
+    border-left-color: #9f7aea;
+}
+
+.metric-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.metric-value {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 10px 0;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: var(--text-gray);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==============================================
+   FORMULAIRE DE PRÉDICTION
+   ============================================== */
+[data-testid="stForm"] {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+}
+
+/* Inputs */
+.stNumberInput > div > div > input,
+.stSelectbox > div > div > div {
+    border: 2px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    transition: all 0.3s ease !important;
+    background: var(--bg-light) !important;
+}
+
+.stNumberInput > div > div > input:focus,
+.stSelectbox > div > div > div:focus {
+    border-color: var(--accent-gold) !important;
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1) !important;
+    background: white !important;
+}
+
+/* Labels */
+.stNumberInput label,
+.stSelectbox label {
+    font-weight: 600 !important;
+    color: var(--text-dark) !important;
+    font-size: 14px !important;
+    margin-bottom: 5px !important;
+}
+
+/* ==============================================
+   BOUTON DE PRÉDICTION
+   ============================================== */
+.stButton > button,
+[data-testid="stFormSubmitButton"] button {
     width: 100%;
-    background-color: #2c3e50;
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-blue) 100%);
     color: white;
     border: none;
     padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
     border-radius: 12px;
-    transition-duration: 0.4s;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.stButton > button:hover {
-    background-color: #4CAF50;
+.stButton > button:hover,
+[data-testid="stFormSubmitButton"] button:hover {
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-light-gold) 100%);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.stButton > button:active,
+[data-testid="stFormSubmitButton"] button:active {
+    transform: translateY(0);
+}
+
+/* ==============================================
+   RÉSULTAT DE PRÉDICTION
+   ============================================== */
+.prediction-result {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+    text-align: center;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.prediction-value {
+    font-size: 56px;
+    font-weight: 800;
+    margin: 20px 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.prediction-label {
+    font-size: 18px;
+    color: var(--text-gray);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ==============================================
+   GRAPHIQUES PLOTLY
+   ============================================== */
+.js-plotly-plot {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: white;
+    padding: 15px;
+}
+
+/* ==============================================
+   MESSAGES D'ALERTE
+   ============================================== */
+.stAlert {
+    border-radius: 12px;
+    border-left-width: 5px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Success */
+div[data-baseweb="notification"][kind="success"] {
+    background-color: #f0fff4;
+    border-left-color: var(--success-green);
+}
+
+/* Info */
+div[data-baseweb="notification"][kind="info"] {
+    background-color: #ebf8ff;
+    border-left-color: var(--info-blue);
+}
+
+/* Warning */
+div[data-baseweb="notification"][kind="warning"] {
+    background-color: #fffaf0;
+    border-left-color: var(--warning-orange);
+}
+
+/* Error */
+div[data-baseweb="notification"][kind="error"] {
+    background-color: #fff5f5;
+    border-left-color: var(--error-red);
+}
+
+/* ==============================================
+   RESPONSIVE DESIGN
+   ============================================== */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .metric-value {
+        font-size: 28px;
+    }
+    
+    .prediction-value {
+        font-size: 40px;
+    }
+    
+    [data-testid="stForm"] {
+        padding: 20px;
+    }
+}
+
+/* ==============================================
+   SCROLLBAR PERSONNALISÉE
+   ============================================== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-gold);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-light-gold);
+}
+
+/* ==============================================
+   ANIMATIONS
+   ============================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.stApp > * {
+    animation: fadeIn 0.5s ease;
+}
+
+/* ==============================================
+   UTILITIES
+   ============================================== */
+.text-center {
+    text-align: center;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+/* ==============================================
+   STREAMLIT SPECIFICS - OVERRIDES
+   ============================================== */
+
+/* Cacher le menu hamburger et le footer Streamlit */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+
+/* Style des titres h1, h2, h3 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* Amélioration des selectbox */
+[data-baseweb="select"] {
+    border-radius: 8px;
+}
+
+/* Tabs si utilisées */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 10px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+.stTabs [aria-selected="true"] {
+    background-color: var(--accent-gold);
     color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
