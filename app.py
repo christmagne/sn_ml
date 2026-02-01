@@ -418,7 +418,7 @@ st.markdown("""
 <div style="text-align: center; color: #718096; padding: 20px;">
     <p style="margin: 0; font-size: 14px;">
         💳 <b>Credit Analytics Pro</b> - Powered by Magne Dassi Christ Laure | 
-        © 2024 | Modèle: SVM Optimisé
+        © 2026 | Modèle: SVM Optimisé
     </p>
 </div>
 """, unsafe_allow_html=True)
